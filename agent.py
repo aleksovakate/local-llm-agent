@@ -24,7 +24,12 @@ def calculator(expression: str) -> str:
 
 
 # give the agent a tool
-agent = create_agent(model, tools=[calculator], checkpointer=InMemorySaver())
+agent = create_agent(
+    model,
+    tools=[calculator],
+    checkpointer=InMemorySaver(),
+    system_prompt="Answer questions directly and concisely. Only use the calculator tool for arithmetic.",
+)
 
 # ask question 
 #result = agent.invoke(
